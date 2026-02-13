@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int factorialcalculate(int num){
+    if(num==0){
+        return 1;
+    }
+    return num*factorialcalculate(num-1);
+}
+bool checkstrong(int num){
+    int temp=num;
+    int digit;
+    int sum=0;
+    while(temp!=0){
+        digit=temp%10;
+        sum=sum+factorialcalculate(digit);
+        temp=temp/10;
+    }
+    return num==sum;
+}
+int main(){
+    int num=145;
+    if(checkstrong(num)){
+        cout<<"It is strong";
+    }
+    else{
+        cout<<"not strong";
+    }
+    return 0;
+}
